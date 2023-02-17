@@ -1,5 +1,5 @@
 # teste-ecommerce
-Projeto de um e-commerce de jogos de videogame.
+Projeto de um e-commerce de jogos.
 
 Para iniciar a API você deverá utilizar os seguintes comandos:
 
