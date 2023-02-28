@@ -7,7 +7,12 @@
 <main class="pt-5">
     <div class="container">
       <h1 class="h5"> Carrinho de compras </h1>
-	<hr>
+	    <hr>
+
+        {% for item in cart %}
+
+        {% with product=item.product %}
+
       <br>
       <div class="row mb-4 border product-item">
         <div class="col-md-3 col-lg-2 order-md-first bg-light">
@@ -54,6 +59,11 @@
             </div>
         </div>
     </div>
+
+      {% endwith %}
+
+      {% endfor %}
+
       <div class="col-12 text-end">
         <div class="h6 fw-bold"> Sub total: R$ <div id="subtotal" class="d-inline-flex"> <!-- cart.get_total --> </div></div>
       </div>
