@@ -79,21 +79,20 @@
 
     //botao deletar
 
-    $(document).on('click', '#add-button', function(e){
+    $(document).on('click', '.delete-button', function(e){
       e.preventDefault();
       $.ajax({
           type: 'POST',
-          url: '{% url "cart-add" %}',
+          url: '{% url "cart-delete" %}',
           data: {
-              product_id: $('#add-button').val(),
-              product_quantity: $('#select option:selected').text(),
+              product_id: $(this).data('index'),
               csrfmiddlewaretoken: "{{csrf_token}}",
               action: 'post'
           },
 
           success: function(json){
               //console.log(json)
-              document.getElementById("cart-qty").textContent = json.qty
+              //document.getElementById("cart-qty").textContent = json.qty
           },
 
           error: function(xhr, errmsg, err){
