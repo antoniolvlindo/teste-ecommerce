@@ -65,7 +65,7 @@
       {% endfor %}
 
       <div class="col-12 text-end">
-        <div class="h6 fw-bold"> Total: R$ <div id="subtotal" class="d-inline-flex"> {{cart.get_total}} </div></div>
+        <div class="h6 fw-bold"> Total: R$ <div id="total" class="d-inline-flex"> {{cart.get_total}} </div></div>
       </div>
     </div>
 
@@ -91,7 +91,8 @@
           },
           success: function(json){
               //console.log(json)
-              //document.getElementById("cart-qty").textContent = json.qty
+              document.getElementById("cart-qty").textContent = json.qty
+              document.getElementById("total").textContent = json.total
           },
           error: function(xhr, errmsg, err){
           },
