@@ -34,7 +34,7 @@
                 <div class="col-12">
                   <label for="select">Qtd</label>
                   &nbsp; 
-                  <select id="">
+                  <select id="select{{product.id}}">
                     <option selected>
                         {{item.qty}}
                     </option>
@@ -44,7 +44,7 @@
                     <option value="">4</option>
                   </select>
                   <br> <br>
-                  <button type="button" id="update-button"
+                  <button type="button" data-index="{{product.id}}"
                     class="btn btn-primary btn-sm update-button">
                     Atualizar
                   </button>
@@ -89,17 +89,38 @@
               csrfmiddlewaretoken: "{{csrf_token}}",
               action: 'post'
           },
-
           success: function(json){
               //console.log(json)
               //document.getElementById("cart-qty").textContent = json.qty
           },
-
           error: function(xhr, errmsg, err){
-
           },
       });
   })
+
+
+  //botao atualizar
+
+  $(document).on('click', '.update-button', function(e){
+    e.preventDefault();
+    var theproductid = $(this).data('index');
+    $.ajax({
+        type: 'POST',
+        url: '{% url "cart-update" %}',
+        data: {
+            product_id: $(this).data('index'),
+            product_quantity: $('#select' + theproductid + 'option:selected').text(),
+            csrfmiddlewaretoken: "{{csrf_token}}",
+            action: 'post'
+        },
+        success: function(json){
+            //console.log(json)
+            //document.getElementById("cart-qty").textContent = json.qty
+        },
+        error: function(xhr, errmsg, err){
+        },
+    });
+})
 
 
   </script>
