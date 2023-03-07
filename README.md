@@ -1,4 +1,5 @@
 Projeto de um e-commerce de jogos.
+O projeto comecou como um teste na qual eu tinha três dias para entregar um e-commerce.
 
 Para iniciar a API você deverá utilizar os seguintes comandos:
 
