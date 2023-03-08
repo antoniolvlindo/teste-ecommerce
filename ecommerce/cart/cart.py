@@ -31,7 +31,7 @@ class Cart():
 
     def update(self, product, qty):
         product_id = str(product)
-        product_quantity = qty
+        product_quantity = int(qty)
         if product_id in self.cart:
             self.cart[product_id]['qty'] = product_quantity
         self.session.modified = True

@@ -98,10 +98,10 @@
           error: function(xhr, errmsg, err){
           },
       });
-  })
+    })
 
 
-  //botao atualizar
+    //botao atualizar
 
   $(document).on('click', '.update-button', function(e){
     e.preventDefault();
@@ -111,7 +111,7 @@
         url: '{% url "cart-update" %}',
         data: {
             product_id: $(this).data('index'),
-            product_quantity: $('#select' + theproductid + 'option:selected').text(),
+            product_quantity: $('#select' + theproductid + ' option:selected').text(),
             csrfmiddlewaretoken: "{{csrf_token}}",
             action: 'post'
         },
@@ -124,7 +124,7 @@
         error: function(xhr, errmsg, err){
         },
     });
-})
+  })
 
 
   </script>
