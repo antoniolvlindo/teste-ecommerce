@@ -4,6 +4,7 @@ from decimal import Decimal
 from store.models import Product
 
 
+# carrinho
 class Cart():
     def __init__(self, request):
         self.session = request.session
@@ -12,6 +13,7 @@ class Cart():
             cart = self.session['session_key'] = {}
         self.cart = cart
 
+# adicionar
     def add(self, product, product_qty):
         product_id = str(product.id)
 
@@ -23,12 +25,14 @@ class Cart():
                 product.price), 'qty': product_qty}
             self.session.modified = True
 
+# deletar
     def delete(self, product):
         product_id = str(product)
         if product_id in self.cart:
             del self.cart[product_id]
         self.session.modified = True
 
+# atualizar
     def update(self, product, qty):
         product_id = str(product)
         product_quantity = int(qty)
@@ -51,5 +55,6 @@ class Cart():
             item['total'] = item['price'] * item['qty']
             yield item
 
+# total de produtos
     def get_total(self):
         return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
