@@ -4,11 +4,13 @@ from store.models import Product
 
 from .cart import Cart
 
-
 # sumário
+
+
 def cart_summary(request):
     cart = Cart(request)
     return render(request, 'cart/cart-summary.html', {'cart': cart})
+
 
 # função adicionar
 
@@ -24,6 +26,7 @@ def cart_add(request):
         response = JsonResponse({'qty': cart_quantity})
         return response
 
+
 # função deletar
 
 
@@ -37,6 +40,7 @@ def cart_delete(request):
 
         response = JsonResponse({'qty': cart_quantity, 'total': cart_total})
         return response
+
 
 # função atualizar
 
