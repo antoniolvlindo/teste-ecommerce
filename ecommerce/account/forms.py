@@ -11,9 +11,11 @@ class CreateUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
 
+        # fazendo email ser obrigatorio
+        self.fields['email'].required = True
+
 
 # Validação do email
-
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
