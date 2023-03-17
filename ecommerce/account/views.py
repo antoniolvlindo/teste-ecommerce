@@ -16,6 +16,8 @@ def register(request):
     return render(request, 'account/registration/register.html', context=context)
 
 
+# urls de verificação
+
 def email_verification(request):
     pass
 
