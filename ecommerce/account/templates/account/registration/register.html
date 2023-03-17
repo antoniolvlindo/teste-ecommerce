@@ -3,9 +3,17 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+    <style>
+
+        body{
+            background-color: gray
+        }
+
+    </style>
+
     <body>
         <br>
-        <div class="container bg-white shadow-md p-5">
+        <div class="container bg-white shadow-md p-5 form-layout">
             <h3> Crie a sua conta. </h3>
             <h5> Compre seus jogos favoritos com a gente! </h5>
 
@@ -27,7 +35,7 @@
 
                 <br><br>
                 <button type="submit" class="btn btn-secondary btn-lg w-100 btn-block"> &nbsp; Criar conta </button>
-
+                
             </form>
 
 
@@ -43,6 +51,6 @@
 
 
     </body>
-
+    <br>
 
 {% endblock %}
