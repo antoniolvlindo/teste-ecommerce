@@ -23,5 +23,7 @@ class CreateUserForm(UserCreationForm):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError('Esse email é invalido.')
 
-        if len(email >= 350):
+        if len(email) >= 350:
             raise forms.ValidationError("Seu email e muito longo.")
+
+        return email
