@@ -22,12 +22,21 @@ def email_verification(request):
     pass
 
 
+# urls de verificação enviado
+
+
 def email_verification_sent(request):
     pass
 
 
+# urls de verificação sucesso
+
+
 def email_verification_success(request):
     pass
+
+
+# urls de verificação falhou
 
 
 def email_verification_fail(request):
