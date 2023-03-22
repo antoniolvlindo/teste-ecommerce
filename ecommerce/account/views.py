@@ -13,8 +13,10 @@ def register(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('store')
+            user = form.save()
+            user.is_active = False
+            user.save()
+            return redirect('email-verification-sent')
 
     context = {'form': form}
 
