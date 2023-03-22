@@ -7,6 +7,8 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .forms import CreateUserForm
 from .token import user_tokenizer_generate
 
+# verificação de email
+
 
 def register(request):
     form = CreateUserForm
