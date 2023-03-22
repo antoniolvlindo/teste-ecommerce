@@ -1,6 +1,8 @@
+from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import redirect, render
 
 from .forms import CreateUserForm
+from .token import user_tokenizer_generate
 
 
 def register(request):
