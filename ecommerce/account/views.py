@@ -41,8 +41,10 @@ def register(request):
 
 
 def email_verification(request, uidb64, token):
-    uid = force_str(urlsafe_base64_decode(uidb64))
-    user = User.objects.get(pk=id)
+
+    # unique id
+    unique_id = force_str(urlsafe_base64_decode(uidb64))
+    user = User.objects.get(pk=unique_id)
 
     # se sucesso
     if user and user_tokenizer_generate.check_token(user, token):
@@ -55,29 +57,22 @@ def email_verification(request, uidb64, token):
         return redirect('email-verification-failed')
 
 
-# urls de verificação
-
-
-def email_verification(request):
-    pass
-
-
 # urls de verificação enviado
 
 
 def email_verification_sent(request):
-    pass
+    return render(request, 'account/registration/email-verification-sent.html')
 
 
 # urls de verificação sucesso
 
 
 def email_verification_success(request):
-    pass
+    return render(request, 'account/registration/email-verification-success.html')
 
 
 # urls de verificação falhou
 
 
 def email_verification_fail(request):
-    pass
+    return render(request, 'account/registration/email-verification-failed.html')
