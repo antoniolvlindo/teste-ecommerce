@@ -8,7 +8,8 @@ urlpatterns = [
     # urls de verificacao de email
 
     # url de verificacao de email
-    path('email-verification', views.email_verification, name='email-verification'),
+    path('email-verification/<str:uidb64>/<str:token>/',
+         views.email_verification, name='email-verification'),
 
 
     # url de verificacao de email enviada

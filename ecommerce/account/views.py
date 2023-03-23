@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
@@ -39,7 +40,23 @@ def register(request):
     return render(request, 'account/registration/register.html', context=context)
 
 
+def email_verification(request, uidb64, token):
+    uid = force_str(urlsafe_base64_decode(uidb64))
+    user = User.objects.get(pk=id)
+
+    # se sucesso
+    if user and user_tokenizer_generate.check_token(user, token):
+        user.is_active = True
+        user.save()
+        return redirect('email-verification-success')
+
+    # senao falhou
+    else:
+        return redirect('email-verification-failed')
+
+
 # urls de verificação
+
 
 def email_verification(request):
     pass
